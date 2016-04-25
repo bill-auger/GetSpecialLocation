@@ -150,6 +150,13 @@ public:
         advances the pointer to point to the next character. */
     juce_wchar getAndAdvance() noexcept
     {
+// data pointer is null here when getSpecialLocation path ends in '/'
+// #define AVOID_SEGFAULT_AT_POINT_OF_FAIL
+#ifdef AVOID_SEGFAULT_AT_POINT_OF_FAIL
+  if (!data) return (juce_wchar)32 ; // avoids segfault dereferencing null pointer
+                                     //   on next line when getSpecialLocation path ends in '/'
+#endif
+
         const signed char byte = (signed char) *data++;
 
         if (byte >= 0)
