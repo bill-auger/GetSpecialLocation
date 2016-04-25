@@ -183,7 +183,14 @@ String File::parseAbsolutePath (const String& p)
     }
 #endif
 
+// if (separatorString.isEmpty()) // segfault (separatorString data pointer is null)
+
+// #define AVOID_SEGFAULT_AT_CALLER
+#ifdef AVOID_SEGFAULT_AT_CALLER
+    while (path.endsWithChar (separator) && path != String("/")) // avoids segfault when path ends in '/'
+#else
     while (path.endsWithChar (separator) && path != separatorString) // careful not to turn a single "/" into an empty string.
+#endif
         path = path.dropLastCharacters (1);
 
     return path;

@@ -88,9 +88,15 @@ static File resolveXDGFolder (const char* const type, const char* const fallback
         if (line.startsWith (type))
         {
             // eg. resolve XDG_MUSIC_DIR="$HOME/Music" to /home/user/Music
-            const File f (line.replace ("$HOME", File ("~").getFullPathName())
-                              .fromFirstOccurrenceOf ("=", false, false)
-                              .trim().unquoted());
+//             const File f (line.replace ("$HOME", File ("~").getFullPathName())
+//                               .fromFirstOccurrenceOf ("=", false, false)
+//                               .trim().unquoted());
+#define INDUCE_SEGFAULT_AT_SOURCE
+#ifdef INDUCE_SEGFAULT_AT_SOURCE
+  const File f(String("/home/me/")) ; // segfault when path ends in '/'
+#else
+  const File f(String("/home/me" )) ; // this is OK
+#endif
 
             if (f.isDirectory())
                 return f;

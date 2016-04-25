@@ -1,5 +1,6 @@
 
-this segfault occurs when a path in ~/.config/user-dirs.dirs ends with a slash char
+this segfault occurs when calling File::getSpecialLocation() statically
+    if the corresponding path in ~/.config/user-dirs.dirs ends with a slash char
     which may be the case when user deletes a dir such as ~/Videos
     or if the file is edited manually
 
