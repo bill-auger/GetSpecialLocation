@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="NZZ1Ka" name="JuceGetSpecialLocationSegfault" projectType="consoleapp"
+              version="1.0.0" bundleIdentifier="com.yourcompany.JuceGetSpecialLocationSegfault"
+              includeBinaryInAppConfig="1" jucerVersion="4.2.1">
+  <MAINGROUP id="Tj2BcX" name="JuceGetSpecialLocationSegfault">
+    <GROUP id="{543BD78A-9FF2-284C-E9C3-FE0BBE8A7CD1}" name="Source">
+      <FILE id="iROnsT" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="1" optimisation="1"
+                       targetName="JuceGetSpecialLocationSegfault"/>
+        <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/" isDebug="0" optimisation="3"
+                       targetName="JuceGetSpecialLocationSegfault"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../mnt/data/code/juce/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="1"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
